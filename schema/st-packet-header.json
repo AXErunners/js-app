@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.axe.org/app-0-4-0/meta/axe-schema",
+  "$id": "https://schema.axe.org/app-0-4-0/st-packet-header",
+  "properties": {
+    "contractId": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "itemsMerkleRoot": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "itemsHash": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64
+    }
+  },
+  "required": [
+    "contractId",
+    "itemsMerkleRoot",
+    "itemsHash"
+  ],
+  "additionalProperties": false
+}

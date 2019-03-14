@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://schema.axe.org/app-0-4-0/meta/axe-schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "http://json-schema.org/draft-07/schema"
+        }
+    ]
+}

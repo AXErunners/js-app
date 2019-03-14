@@ -1,7 +1,7 @@
 {
   "name": "@axerunners/app",
   "version": "0.0.1",
-  "description": "The JavaScript implementation of the Axe Platform Protocol",
+  "description": "The JavaScript implementation of the AXE Platform Protocol",
   "scripts": {
     "lint": "eslint .",
     "test": "npm run test:coverage && npm run test:browsers",

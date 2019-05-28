@@ -18,7 +18,7 @@ describe('validateSTPacketHeaderStructure', () => {
     validateSTPacketHeader = validateSTPacketHeaderFactory(validator);
 
     rawStPacketHeader = {
-      contractId: '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b',
+      contractId: 'HgKXrLhm7sMjPrRGS1UsETmmQ7nZHbaKN729zw55PUVk',
       itemsMerkleRoot: '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b',
       itemsHash: '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b',
     };
@@ -53,7 +53,7 @@ describe('validateSTPacketHeaderStructure', () => {
       expect(error.keyword).to.equal('type');
     });
 
-    it('should be no less than 64 chars', () => {
+    it('should be no less than 32 chars', () => {
       rawStPacketHeader.contractId = '86b273ff';
 
       const result = validateSTPacketHeader(rawStPacketHeader);
@@ -66,7 +66,7 @@ describe('validateSTPacketHeaderStructure', () => {
       expect(error.keyword).to.equal('minLength');
     });
 
-    it('should be no longer than 64 chars', () => {
+    it('should be no longer than 44 chars', () => {
       rawStPacketHeader.contractId = '86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff86b273ff';
 
       const result = validateSTPacketHeader(rawStPacketHeader);

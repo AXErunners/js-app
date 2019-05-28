@@ -1,18 +1,18 @@
 const AxePlatformProtocol = require('../../lib/AxePlatformProtocol');
 
-const getDPContractFixture = require('../../lib/test/fixtures/getDPContractFixture');
+const getContractFixture = require('../../lib/test/fixtures/getContractFixture');
 
 const createDataProviderMock = require('../../lib/test/mocks/createDataProviderMock');
 
 describe('AxePlatformProtocol', () => {
   let app;
   let userId;
-  let dpContract;
+  let contract;
   let dataProvider;
 
   beforeEach(function beforeEach() {
     userId = '6b74011f5d2ad1a8d45b71b9702f54205ce75253593c3cfbba3fdadeca278288';
-    dpContract = getDPContractFixture();
+    contract = getContractFixture();
     dataProvider = createDataProviderMock(this.sinonSandbox);
 
     app = new AxePlatformProtocol();
@@ -24,13 +24,13 @@ describe('AxePlatformProtocol', () => {
 
       expect(result).to.be.an.instanceOf(AxePlatformProtocol);
 
-      expect(app.userId).to.equal(userId);
+      expect(app.getUserId()).to.equal(userId);
     });
   });
 
   describe('getUserId', () => {
     it('should return User ID', () => {
-      app.userId = userId;
+      app.setUserId(userId);
 
       const result = app.getUserId();
 
@@ -38,23 +38,23 @@ describe('AxePlatformProtocol', () => {
     });
   });
 
-  describe('setDPContract', () => {
+  describe('setContract', () => {
     it('should set User ID', () => {
-      const result = app.setDPContract(dpContract);
+      const result = app.setContract(contract);
 
       expect(result).to.be.an.instanceOf(AxePlatformProtocol);
 
-      expect(app.dpContract).to.equal(dpContract);
+      expect(app.getContract()).to.equal(contract);
     });
   });
 
-  describe('getDPContract', () => {
-    it('should return DP Contract', () => {
-      app.dpContract = dpContract;
+  describe('getContract', () => {
+    it('should return Contract', () => {
+      app.setContract(contract);
 
-      const result = app.getDPContract();
+      const result = app.getContract();
 
-      expect(result).to.equal(dpContract);
+      expect(result).to.equal(contract);
     });
   });
 
@@ -64,13 +64,13 @@ describe('AxePlatformProtocol', () => {
 
       expect(result).to.be.an.instanceOf(AxePlatformProtocol);
 
-      expect(app.dataProvider).to.equal(dataProvider);
+      expect(app.getDataProvider()).to.equal(dataProvider);
     });
   });
 
   describe('getDataProvider', () => {
     it('should return Data Provider', () => {
-      app.dataProvider = dataProvider;
+      app.setDataProvider(dataProvider);
 
       const result = app.getDataProvider();
 
